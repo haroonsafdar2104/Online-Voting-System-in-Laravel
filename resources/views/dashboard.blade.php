@@ -100,7 +100,7 @@
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.4);
 }
 .voters{
-  background-color:#0080ff;
+  background-color:#157347;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.4);
 }
 .candidates{
