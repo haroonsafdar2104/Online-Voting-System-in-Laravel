@@ -15,6 +15,9 @@ use App\Http\Controllers\voter_Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+    });
 Route::resource('/candidate', candidate_Controller::class);
 Route::get('/search', [candidate_Controller::class, 'search'])->name('search');
 
