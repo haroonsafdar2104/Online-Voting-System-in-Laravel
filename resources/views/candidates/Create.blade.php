@@ -1,11 +1,11 @@
-@extends('voters.layout')
+@extends('candidates.layout')
 @section('content')
  
 <div class="card">
   <div class="card-header">Add Candidate Data</div>
   <div class="card-body">
       
-      <form action="{{ url('voter') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ url('candidate') }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <label>Candidate Name</label></br>
         <input type="text" name="candidate_name" id="candidate_name" class="form-control"></br>

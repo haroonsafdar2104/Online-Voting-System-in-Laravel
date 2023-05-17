@@ -1,4 +1,4 @@
-@extends('voters.layout')
+@extends('candidates.layout')
 @section('content')
 
     <div class="container">
@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header">Candidate List</div>
                     <div class="card-body">
-                        <a href="{{ url('/voter/create') }}" class="btn btn-success btn-sm" title="Add New Candidate">
+                        <a href="{{ url('/candidate/create') }}" class="btn btn-success btn-sm" title="Add New Candidate">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
                         <a href="{{ route('search') }}" class="btn btn-success btn-sm" title="Search">
@@ -31,17 +31,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($voters as $item)
+                                @foreach($candidate as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->candidate_name }}</td>
                                         <td>{{ $item->CNIC }}</td>
                                         <td>{{ $item->party_name }}</td>
                                         <td>{{ $item->Electoral }}</td>
-                                        <td><img src="{{ asset('uploads/voter/'.$item->image) }}" width="70px"></td>
+                                        <td><img src="{{ asset('uploads/candidate/'.$item->image) }}" width="70px"></td>
  
                                         <td>
-                                            <a href="{{ url('/voter/' . $item->id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/candidate/' . $item->id) }}" title="View Candidate"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <!-- <a href="{{ url('/voter/' . $item->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
  
                                             <form method="POST" action="{{ url('/voter' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">

@@ -1,4 +1,4 @@
-@extends('voters.layout')
+@extends('candidates.layout')
 @section('content')
     
 

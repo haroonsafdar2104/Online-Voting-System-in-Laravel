@@ -1,4 +1,4 @@
-<!-- @extends('voters.layout') -->
+@extends('candidates.layout')
 @section('content')
  
 <!DOCTYPE html>
@@ -66,11 +66,11 @@
     <a href="#" class="btn btn-success btn-lg btn-block custom-btn">Register as Voter</a>
   </div>
   <div class="col-md-3 mb-4">
-    <a href="{{ url('/voter/create') }}" class="btn btn-success btn-lg btn-block custom-btn">Register as Candidate</a>
+    <a href="{{ url('/candidate/create') }}" class="btn btn-success btn-lg btn-block custom-btn">Register as Candidate</a>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12 mb-4">
     <a href="#" class="btn btn-info btn-lg btn-block custom-btn">View Results</a>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <?php
   
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\voter_Controller;
+use App\Http\Controllers\candidate_Controller;
 use App\Http\Controllers\Auth\AuthController;
   
 /*
@@ -14,8 +14,8 @@ use App\Http\Controllers\Auth\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('/voter', voter_Controller::class);
-Route::get('/search', [voter_Controller::class, 'search'])->name('search');
+Route::resource('/candidate', candidate_Controller::class);
+Route::get('/search', [candidate_Controller::class, 'search'])->name('search');
   
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
