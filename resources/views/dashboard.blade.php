@@ -71,7 +71,7 @@
     <a href="{{ url('/candidate/create') }}" class="btn btn-success btn-lg btn-block custom-btn">Register as Candidate</a>
   </div>
 </div>
-<div class="row">
+<div class="row" >
   <div class="col-md-12 mb-4">
     <a href="#" class="btn btn-info btn-lg btn-block custom-btn">View Results</a>
   </div>
@@ -85,6 +85,7 @@
   .card-category, .card-title{
     color:#fff;
     font-size:15px;
+    
   }
     .custom-btn {
   font-size: 18px;
@@ -102,6 +103,7 @@
 .voters{
   background-color:#157347;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.4);
+  
 }
 .candidates{
   background-color:#0080ff;
@@ -116,6 +118,7 @@
     justify-content: center;
     align-items: center;
     height: 115px;
+    
   }
 </style>
 </body>

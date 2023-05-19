@@ -16,7 +16,7 @@
             line-height: 1.6;
             color: #212529;
             text-align: left;
-            background-color: #f5f8fa;
+            background-color: #48789B;
         }
         .navbar-laravel
         {
@@ -52,7 +52,7 @@
     
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="container">
-        <a class="navbar-brand" href="#">Laravel</a>
+        <a class="navbar-brand" href="#">Online Voting System</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
