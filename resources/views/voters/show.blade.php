@@ -33,6 +33,7 @@
                                 </tbody>
                             </table>
                             <a href="{{ url('voter') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Back</button></a>
+                            <a href="" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Cast Vote</button></a>
   </div>
     </hr>
   

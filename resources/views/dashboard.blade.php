@@ -71,12 +71,54 @@
     <a href="{{ url('/candidate/create') }}" class="btn btn-success btn-lg btn-block custom-btn">Register as Candidate</a>
   </div>
 </div>
-<div class="row" >
+<!-- <div class="row" >
   <div class="col-md-12 mb-4">
     <a href="#" class="btn btn-info btn-lg btn-block custom-btn">View Results</a>
   </div>
+</div> -->
 </div>
-</div>
+
+
+
+<section class="section py-5 bg-light">
+    <div class="container">
+        <div class="card">
+            <div class="text-center py-4">
+                <h1 class="fw-light">Poll Result</h1>
+            </div>
+
+
+            <div class="card-body">
+
+                <div class="winners mx-auto mb-3">
+                    <h5 class="mb-2">Winners</h5>
+
+                    @php
+                        $sl = 1;
+                    @endphp
+                    <table class="table table-bordered">
+                      
+                    </table>
+                </div>
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Candidate Name</th>
+                            <th>Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
     </div>
     </div>
   </div>
