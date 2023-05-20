@@ -14,11 +14,7 @@
 
             <div class="card-body pt-5">
                 <form id="voting_form" action="{{ route('polling') }}" method="GET">
-                    <div class="form-group mb-2">
-                        <label for="mobile">Your Mobile No.</label>
-                        <input type="number" name="mobile" id="mobile" class="form-control">
-                        <p id="mobile_msg" class="input-status-msg"></p>
-                    </div>
+                   
 
                     <div class="row mt-3 candidateList-wrapper">
                         <div class="col-md-6">
