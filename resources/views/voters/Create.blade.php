@@ -17,7 +17,7 @@
       <form action="{{ url('voter') }}" method="post">
         {!! csrf_field() !!}
         <label>Name</label></br>
-        <input type="text" name="name" id="candidate_name" class="form-control"></br>
+        <input type="text" name="name" id="name" class="form-control"></br>
         <label>Email</label></br>
         <input type="text" name="Email" id="Email" class="form-control"></br>
         <label>Password</label></br>

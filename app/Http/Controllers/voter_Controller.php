@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\voter;
+use App\Models\Candidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class voter_Controller extends Controller
@@ -67,6 +68,11 @@ public function search(Request $request)
         $input = $request->all();
         $voter->update($input);
         return redirect('voter')->with('flash_message', 'Voter Updated!');  
+    }
+    public function polling()
+    {
+        $candidates = Candidate::all();
+        return view('voters.polling')->with('candidates', $candidates);
     }
  
   

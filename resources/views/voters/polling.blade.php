@@ -13,7 +13,7 @@
            
 
             <div class="card-body pt-5">
-                <form id="voting_form">
+                <form id="voting_form" action="{{ route('polling') }}" method="GET">
                     <div class="form-group mb-2">
                         <label for="mobile">Your Mobile No.</label>
                         <input type="number" name="mobile" id="mobile" class="form-control">
