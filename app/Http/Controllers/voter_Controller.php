@@ -81,6 +81,84 @@ public function search(Request $request)
         voter::destroy($id);
         return redirect('voter')->with('flash_message', 'Contact deleted!');  
     }
+
+
+
+
+    public function vote(Request $request)
+    {
+        $errors = [];
+
+        
+        $candidate1 = intval($request->candidateOne);
+        $candidate2 = intval($request->candidateTwo);
+
+
+        if(empty($candidate1)) {
+            $errors["candidateOne"]   = "Select a candidate.";
+        }
+        if(empty($candidate2)) {
+            $errors["candidateTwo"]   = "Select a candidate.";
+        }
+        if(!empty($candidate2) && ($candidate1 === $candidate2)) {
+            $errors["candidateTwo"]   = "You can not vote for same candidate.";
+        }
+
+        if(!empty($errors)) {
+            return response()->json([
+                'message' => 'Fix the errors and try again.',
+                'errors' => $errors,
+            ], 422);
+        }
+
+        try {
+            $vote1  = Vote::updateOrCreate(
+                [
+                    'voter_id'  => $voter->voter_id,
+                    'preference'  => 1,
+                ],
+                ['candidate_id' => $candidate1]
+            );
+
+            $vote2  = Vote::updateOrCreate(
+                [
+                    'voter_id'  => $voter->voter_id,
+                    'preference'  => 2,
+                ],
+                ['candidate_id' => $candidate2]
+            );
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'You have cast your vote successfully.',
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unable to process your request.',
+                'error' => $e->getMessage(),
+            ]);
+        }
+        return view('voters.show');
+    }
+
+
+
+
+    public function poll_result()
+    {
+        $candidatesQ = Candidate::selectRaw('candidates.candidate_name, count(votes.candidate_id) as votes')
+            ->leftJoin('votes', 'candidates.candidate_id', '=', 'votes.candidate_id')
+            ->groupBy('candidates.candidate_name')
+            ->orderBy('votes', 'desc');
+
+        $candidates = $candidatesQ->get();
+        $winners    = $candidatesQ->limit(2)->get();
+
+        return view('poll-result', compact('candidates', 'winners'));
+    }
+
+
 }
 
 

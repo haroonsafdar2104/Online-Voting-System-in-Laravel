@@ -14,7 +14,7 @@ class CreateVotersTable extends Migration
     public function up()
     {
         Schema::create('voters', function (Blueprint $table) {
-            $table->id();
+            $table->id('voters_id');
             $table->timestamps();
             $table->string('name',100 );
             $table->string('email',100);

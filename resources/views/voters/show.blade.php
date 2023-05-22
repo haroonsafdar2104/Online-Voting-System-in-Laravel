@@ -16,14 +16,15 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>{{ $voters->id }}</td>
+                                  
+                                         <td>{{ $voters->voters_id}}</td>
                                         <td>{{ $voters->name }}</td>
                                         <td>{{ $voters->email }}</td>
                                         <td>{{ $voters->password }}</td>
  
                                         <td>
-                                            <a href="{{ url('/voter/' . $voters->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                            <form method="POST" action="{{ url('/voter' . '/' . $voters->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <a href="{{ url('/voter/' . $voters->voters_id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <form method="POST" action="{{ url('/voter' . '/' . $voters->voters_id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Contact" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>

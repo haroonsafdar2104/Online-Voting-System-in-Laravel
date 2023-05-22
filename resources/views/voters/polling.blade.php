@@ -1,5 +1,5 @@
-
-@extends('candidates.layout')
+{{-- Extends layout --}}
+@extends('layout')
 @section('content')
 
 <section class="section py-5 bg-light">
@@ -13,11 +13,11 @@
            
 
             <div class="card-body pt-5">
-                <form id="voting_form" action="{{ route('polling') }}" method="GET">
+                <form id="voting_form" action="{{ url('vote') }}" method="post" >
                    
 
                     <div class="row mt-3 candidateList-wrapper">
-                        <div class="col-md-6">
+                        <div class="col-md-6" >
                             <p class="fs-5">1st Candidate</p>
                             <div id="candidateOne" class="candidateList">
                                 @foreach ($candidates as $candidate)
