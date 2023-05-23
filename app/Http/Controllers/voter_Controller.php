@@ -87,57 +87,65 @@ public function search(Request $request)
 
 
     public function vote(Request $request)
-    {
-        $errors = [];
-        $voters = voter::all();
+{
+    $errors = [];
 
-        $candidate1 = intval($request->candidateOne);
-        $candidate2 = intval($request->candidateTwo);
-
-
-        if(empty($candidate1)) {
-            $errors["candidateOne"]   = "Select a candidate.";
-        }
-        if(empty($candidate2)) {
-            $errors["candidateTwo"]   = "Select a candidate.";
-        }
-        if(!empty($candidate2) && ($candidate1 === $candidate2)) {
-            $errors["candidateTwo"]   = "You can not vote for same candidate.";
-        }
-
-        if(!empty($errors)) {
-            return response()->json([
-                'message' => 'Fix the errors and try again.',
-                'errors' => $errors,
-            ], 422);
-        }
-
-        try {
-            $vote1  = Vote::updateOrCreate(
-                [
-                    'voters_id'  => 4,
-                    'preference'  => 1,
-                ],
-                ['candidates_id' => $candidate1]
-            );
-
-            $vote2  = Vote::updateOrCreate(
-                [
-                    'voters_id'  => 4,
-                    'preference'  => 2,
-                ],
-                ['candidates_id' => $candidate2]
-            );
-            return view('dashboard')->with('success','You have cast your vote successfully.')->with('voters',$voters);
-        } catch (Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unable to process your request.',
-                'error' => $e->getMessage(),
-            ]);
-        }
-        return view('voters.show');
+    // Validate voter name
+    $voterName = $request->input('voterName');
+    $voter = Voter::where('name', $voterName)->first();
+    if (!$voter) {
+        $errors["voterName"] = "You are not a registered voter.";
     }
+
+    $candidate1 = intval($request->candidateOne);
+    $candidate2 = intval($request->candidateTwo);
+
+    if (empty($candidate1)) {
+        $errors["candidateOne"] = "Select a candidate.";
+    }
+
+    if (empty($candidate2)) {
+        $errors["candidateTwo"] = "Select a candidate.";
+    }
+
+    if (!empty($candidate2) && ($candidate1 === $candidate2)) {
+        $errors["candidateTwo"] = "You cannot vote for the same candidate.";
+    }
+
+    if (!empty($errors)) {
+        return back()->withErrors($errors)->withInput();
+    }
+
+    try {
+        $vote1 = Vote::updateOrCreate(
+            [
+                'voters_id' => $voter->voters_id,
+                'preference' => 1,
+            ],
+            ['candidates_id' => $candidate1]
+        );
+
+        $vote2 = Vote::updateOrCreate(
+            [
+                'voters_id' => $voter->voters_id,
+                'preference' => 2,
+            ],
+            ['candidates_id' => $candidate2]
+        );
+        $candidatesQ = Candidate::selectRaw('candidates.candidate_name, count(votes.candidates_id) as votes')
+            ->leftJoin('votes', 'candidates.candidates_id', '=', 'votes.candidates_id')
+            ->groupBy('candidates.candidate_name')
+            ->orderBy('votes', 'desc');
+
+        $candidates = $candidatesQ->get();
+        $winners    = $candidatesQ->limit(2)->get();
+
+        return view('dashboard')->with('success', 'You have cast your vote successfully.')->with('winners',$winners)->with('candidates',$candidates);
+    } catch (Exception $e) {
+        return back()->withErrors(['error' => 'Unable to process your request.'])->withInput();
+    }
+}
+
 
 
 
@@ -152,7 +160,7 @@ public function search(Request $request)
         $candidates = $candidatesQ->get();
         $winners    = $candidatesQ->limit(2)->get();
 
-        return view('poll-result', compact('candidates', 'winners'));
+        return view('dashboard', compact('candidates', 'winners'));
     }
 
 

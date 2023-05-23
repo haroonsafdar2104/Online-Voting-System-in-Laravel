@@ -44,7 +44,15 @@
                                 <p class="input-status-msg">{{ $message }}</p>
                             @enderror
                         </div>
+                        <div class="form-group mt-4">
+                        <label for="voterName">Voter Name</label>
+                        <input type="text" name="voterName" id="voterName" class="form-control" placeholder="Enter your name">
+                        @error('voterName')
+                            <p class="input-status-msg">{{ $message }}</p>
+                        @enderror
                     </div>
+                    </div>
+
 
                     @csrf
                     <div id="voting_form_status" class="my-3" style="max-width:600px;"></div>

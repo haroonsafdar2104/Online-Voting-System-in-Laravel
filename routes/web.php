@@ -25,7 +25,7 @@ Route::get('/search', [candidate_Controller::class, 'search'])->name('search');
 Route::resource('/voter', voter_Controller::class);
 Route::get('/search', [voter_Controller::class, 'search'])->name('search');
 Route::get('/polling', [Voter_Controller::class, 'showPollingPage']);
-Route::post('/vote', [Voter_Controller::class, 'vote'])->name('vote');
+Route::post('/dashboard', [Voter_Controller::class, 'vote'])->name('vote');
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('registration', [AuthController::class, 'registration'])->name('register');

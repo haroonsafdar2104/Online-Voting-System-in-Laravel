@@ -82,6 +82,7 @@
 
 <section class="section py-5 bg-light">
     <div class="container">
+    <div class="alert alert-success" role="alert">{{ $success }}</div>
         <div class="card">
             <div class="text-center py-4">
                 <h1 class="fw-light">Poll Result</h1>

@@ -89,7 +89,7 @@ class AuthController extends Controller
 
         $candidates = $candidatesQ->get();
         $winners    = $candidatesQ->limit(2)->get();
-            return view('dashboard')->with('winners',$winners)->with('candidates',$candidates);
+            return view('dashboard')->with('winners',$winners)->with('candidates',$candidates)->with('success','');
         }
   
         return redirect("login")->withSuccess('Opps! You do not have access');
