@@ -14,7 +14,7 @@ class CreateVotesTable extends Migration
     public function up()
     {
         Schema::create('votes', function (Blueprint $table) {
-            $table->id('vote_id');
+            $table->id();
             $table->foreignId('candidates_id')->constrained('candidates', 'candidates_id');
             $table->foreignId('voters_id')->constrained('voters', 'voters_id');
             $table->tinyInteger('preference')->unsigned();

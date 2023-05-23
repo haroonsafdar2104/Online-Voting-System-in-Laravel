@@ -1,4 +1,3 @@
-{{-- Extends layout --}}
 @extends('layout')
 @section('content')
 
@@ -10,54 +9,46 @@
                 <p class="lead text-muted">You can vote for 2 candidates.</p>
             </div>
 
-           
-
             <div class="card-body pt-5">
-                <form id="voting_form" action="{{ url('vote') }}" method="post" >
-                   
-
+                <form id="voting_form" action="{{ route('vote') }}" method="post">
                     <div class="row mt-3 candidateList-wrapper">
-                        <div class="col-md-6" >
+                        <div class="col-md-6">
                             <p class="fs-5">1st Candidate</p>
                             <div id="candidateOne" class="candidateList">
                                 @foreach ($candidates as $candidate)
-                                    @php
-                                        $candidateId    = $candidate->candidate_id;
-                                        $candidateName  = $candidate->candidate_name;
-                                    @endphp
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="candidateOne" value="{{ $candidateId }}" id="candidateOne_{{ $candidateId }}">
-                                        <label class="form-check-label" for="candidateOne_{{ $candidateId }}">
-                                            {{ $candidateName }}
+                                        <input class="form-check-input" type="radio" name="candidateOne" value="{{ $candidate->candidates_id }}" id="candidateOne_{{ $candidate->candidates_id }}">
+                                        <label class="form-check-label" for="candidateOne_{{ $candidate->candidates_id }}">
+                                            {{ $candidate->candidate_name }}
                                         </label>
                                     </div>
                                 @endforeach
                             </div>
-                            <p id="candidateOne_msg" class="input-status-msg"></p>
+                            @error('candidateOne')
+                                <p class="input-status-msg">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="col-md-6">
                             <p class="fs-5">2nd Candidate</p>
                             <div id="candidateTwo" class="candidateList">
                                 @foreach ($candidates as $candidate)
-                                    @php
-                                        $candidateId    = $candidate->candidate_id;
-                                        $candidateName  = $candidate->candidate_name;
-                                    @endphp
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="candidateTwo" value="{{ $candidateId }}" id="candidateTwo_{{ $candidateId }}">
-                                        <label class="form-check-label" for="candidateTwo_{{ $candidateId }}">
-                                            {{ $candidateName }}
+                                        <input class="form-check-input" type="radio" name="candidateTwo" value="{{ $candidate->candidates_id }}" id="candidateTwo_{{ $candidate->candidates_id }}">
+                                        <label class="form-check-label" for="candidateTwo_{{ $candidate->candidates_id }}">
+                                            {{ $candidate->candidate_name }}
                                         </label>
                                     </div>
                                 @endforeach
                             </div>
-                            <p id="candidateTwo_msg" class="input-status-msg"></p>
+                            @error('candidateTwo')
+                                <p class="input-status-msg">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 
                     @csrf
                     <div id="voting_form_status" class="my-3" style="max-width:600px;"></div>
-                    <button type="button" id="voting_form_submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="voting_form_submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

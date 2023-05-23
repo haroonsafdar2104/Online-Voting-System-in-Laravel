@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Vote;
 use Session;
 use App\Models\User;
+use App\Models\Candidate;
 use Hash;
   
 class AuthController extends Controller
@@ -78,8 +80,16 @@ class AuthController extends Controller
      */
     public function dashboard()
     {
+        
         if(Auth::check()){
-            return view('dashboard');
+            $candidatesQ = Candidate::selectRaw('candidates.candidate_name, count(votes.candidates_id) as votes')
+            ->leftJoin('votes', 'candidates.candidates_id', '=', 'votes.candidates_id')
+            ->groupBy('candidates.candidate_name')
+            ->orderBy('votes', 'desc');
+
+        $candidates = $candidatesQ->get();
+        $winners    = $candidatesQ->limit(2)->get();
+            return view('dashboard')->with('winners',$winners)->with('candidates',$candidates);
         }
   
         return redirect("login")->withSuccess('Opps! You do not have access');

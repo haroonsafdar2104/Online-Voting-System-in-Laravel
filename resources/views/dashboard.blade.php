@@ -97,7 +97,15 @@
                         $sl = 1;
                     @endphp
                     <table class="table table-bordered">
-                      
+                    @foreach ($winners as $winner)
+                            <tr>
+                                <td class="w-25">{{ $sl }}</td>
+                                <td class="w-75">{{ $winner->candidate_name }}</td>
+                            </tr>
+                            @php
+                            $sl++;
+                            @endphp
+                        @endforeach
                     </table>
                 </div>
 
@@ -110,7 +118,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                       
+                    @php
+                            $rnk = 1;
+                        @endphp
+                        @foreach ($candidates as $c)
+                        <tr>
+                            <td>{{ $rnk }}</td>
+                            <td>{{ $c->candidate_name }}</td>
+                            <td>{{ $c->votes }}</td>
+                        </tr>
+                        @php
+                            $rnk++;
+                        @endphp
+                        @endforeach
                     </tbody>
                 </table>
             </div>

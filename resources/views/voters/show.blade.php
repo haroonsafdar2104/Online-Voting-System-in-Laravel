@@ -34,7 +34,7 @@
                                 </tbody>
                             </table>
                             <a href="{{ url('voter') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Back</button></a>
-                            <a href="{{ route('polling') }}" class="btn btn-success btn-sm" title="Search"><i class="fa fa-search" aria-hidden="true"></i> Polling</a>  
+                            <a href="{{ url('polling') }}" class="btn btn-success btn-sm" title="Search"><i class="fa fa-search" aria-hidden="true"></i> Polling</a>  
                         </div>
     </hr>
   

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\voter;
 use App\Models\Candidate;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class voter_Controller extends Controller
@@ -69,7 +70,7 @@ public function search(Request $request)
         $voter->update($input);
         return redirect('voter')->with('flash_message', 'Voter Updated!');  
     }
-    public function polling()
+    public function showPollingPage()
     {
         $candidates = Candidate::all();
         return view('voters.polling')->with('candidates', $candidates);
@@ -88,8 +89,8 @@ public function search(Request $request)
     public function vote(Request $request)
     {
         $errors = [];
+        $voters = voter::all();
 
-        
         $candidate1 = intval($request->candidateOne);
         $candidate2 = intval($request->candidateTwo);
 
@@ -114,24 +115,20 @@ public function search(Request $request)
         try {
             $vote1  = Vote::updateOrCreate(
                 [
-                    'voter_id'  => $voter->voter_id,
+                    'voters_id'  => 4,
                     'preference'  => 1,
                 ],
-                ['candidate_id' => $candidate1]
+                ['candidates_id' => $candidate1]
             );
 
             $vote2  = Vote::updateOrCreate(
                 [
-                    'voter_id'  => $voter->voter_id,
+                    'voters_id'  => 4,
                     'preference'  => 2,
                 ],
-                ['candidate_id' => $candidate2]
+                ['candidates_id' => $candidate2]
             );
-
-            return response()->json([
-                'status' => 'success',
-                'message' => 'You have cast your vote successfully.',
-            ]);
+            return view('dashboard')->with('success','You have cast your vote successfully.')->with('voters',$voters);
         } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
