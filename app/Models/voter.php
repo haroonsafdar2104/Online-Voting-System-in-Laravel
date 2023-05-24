@@ -13,6 +13,4 @@ class voter extends Model
     {
     return $this->belongsTo(vote::class);
     }
-
-
 }
