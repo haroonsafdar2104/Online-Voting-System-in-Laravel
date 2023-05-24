@@ -15,9 +15,11 @@ class CreateVotesTable extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('candidates_id')->constrained('candidates', 'candidates_id');
-            $table->foreignId('voters_id')->constrained('voters', 'voters_id');
             $table->tinyInteger('preference')->unsigned();
+            $table->unsignedbiginteger('voters_id');
+            $table->foreign('voters_id')->references('voters_id')->on('voters');
+            $table->unsignedbiginteger('candidates_id');
+            $table->foreign('candidates_id')->references('candidates_id')->on('candidates');
             $table->timestamps();
         });
     }

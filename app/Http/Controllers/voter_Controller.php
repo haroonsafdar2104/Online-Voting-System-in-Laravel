@@ -82,19 +82,25 @@ public function search(Request $request)
         voter::destroy($id);
         return redirect('voter')->with('flash_message', 'Contact deleted!');  
     }
-
-
-
-
     public function vote(Request $request)
 {
     $errors = [];
+
 
     // Validate voter name
     $voterName = $request->input('voterName');
     $voter = Voter::where('name', $voterName)->first();
     if (!$voter) {
         $errors["voterName"] = "You are not a registered voter.";
+    }
+    if ($voter && $voter = Vote::where('voters_id', $voter->voters_id)->first()) {
+        $errors["voterName"] = "You have already cast your vote.";
+    }
+
+    // Rest of your validation code...
+
+    if (!empty($errors)) {
+        return back()->withErrors($errors)->withInput();
     }
 
     $candidate1 = intval($request->candidateOne);
