@@ -24,6 +24,7 @@ return array(
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Vote' => $baseDir . '/app/Models/Vote.php',
     'App\\Models\\candidate' => $baseDir . '/app/Models/candidate.php',
+    'App\\Models\\candidate_support' => $baseDir . '/app/Models/candidate_support.php',
     'App\\Models\\voter' => $baseDir . '/app/Models/voter.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
