@@ -102,6 +102,7 @@
                             <tr>
                                 <td class="w-25">{{ $sl }}</td>
                                 <td class="w-75">{{ $winner->candidate_name }}</td>
+                                
                             </tr>
                             @php
                             $sl++;
@@ -116,6 +117,7 @@
                             <th>Rank</th>
                             <th>Candidate Name</th>
                             <th>Votes</th>
+                            <!-- <th>Image</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -127,6 +129,7 @@
                             <td>{{ $rnk }}</td>
                             <td>{{ $c->candidate_name }}</td>
                             <td>{{ $c->votes }}</td>
+                            <!-- <td><img src="{{ asset('uploads/candidate/'.$c->image) }}" width="70px"></td> -->
                         </tr>
                         @php
                             $rnk++;

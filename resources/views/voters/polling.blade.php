@@ -20,6 +20,7 @@
                                         <input class="form-check-input" type="radio" name="candidateOne" value="{{ $candidate->candidates_id }}" id="candidateOne_{{ $candidate->candidates_id }}">
                                         <label class="form-check-label" for="candidateOne_{{ $candidate->candidates_id }}">
                                             {{ $candidate->candidate_name }}
+                                            
                                         </label>
                                     </div>
                                 @endforeach

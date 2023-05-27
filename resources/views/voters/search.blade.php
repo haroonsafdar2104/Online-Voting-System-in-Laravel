@@ -2,13 +2,13 @@
     @section('content')
     <div class="container">
     <div class="card">
-        <div class="card-header">Login</div>
+        <div class="card-header">Login as Voter</div>
         <div class="card-body">
         <form action="{{ route('search') }}" method="GET">
             <Label>Email:</Label>
             <input type="text" name="keyword" placeholder="Enter your Email" class="form-control">
             <br>
-            <button type="submit" class="btn btn-success">Search</button>
+            <button type="submit" class="btn btn-success">Login</button>
             @if (isset($status))
                 <div class="alert alert-success alert-dismissible">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

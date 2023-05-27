@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="card">
-  <h1>ONLINE VOTING SYSTEM</h1>
+  
   <div class="card-header">Voter registeration</div>
   <div class="card-body">
       

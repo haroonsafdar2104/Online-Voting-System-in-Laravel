@@ -71,7 +71,7 @@ public function csearch(Request $request)
         return view('candidates.show', ['candidates' => $results[0]]);
         
     } else {
-        return view('voters.search')->with('status', 'user not Found')->with('searchKeyword', $searchKeyword);
+        return view('candidates.search')->with('status', 'user not Found')->with('searchKeyword', $searchKeyword);
         
     }
 }
