@@ -17,12 +17,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Online Voting System (Dashboard)</div>
+                    <div class="card-header">Voters List</div>
                     <div class="card-body">
-                        <a href="{{ url('/voter/create') }}" class="btn btn-success btn-sm" title="Add New Contact">
+                        <!-- <a href="{{ url('/voter/create') }}" class="btn btn-success btn-sm" title="Add New Contact">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
-                        <a href="{{ route('search') }}" class="btn btn-success btn-sm" title="Search"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
+                        <a href="{{ route('search') }}" class="btn btn-success btn-sm" title="Search"><i class="fa fa-search" aria-hidden="true"></i> Search</a> -->
                         <!-- <div class="row">
   <div class="col-md-4 mb-5">
     <a href="#" class="btn btn-primary btn-md btn-block custom-btn"><i class="fas fa-sign-in-alt"></i>  Login as Voter</a>
@@ -124,6 +124,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <a href="{{ url('dashboard') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Back</button></a>
 
                         </div>
  

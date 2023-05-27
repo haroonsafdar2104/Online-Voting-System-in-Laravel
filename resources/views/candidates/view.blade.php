@@ -7,7 +7,7 @@
  
             <div class="col-md-19">
                 <div class="card">
-                    <div class="card-header">Searched Candidate </div>
+                    <div class="card-header">Details of {{$candidates->candidate_name}} </div>
                     <div class="card-body">
                         <!-- <a href="{{ url('/voter/create') }}" class="btn btn-success btn-sm" title="Add New Contact">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
@@ -33,7 +33,7 @@
                                 <tbody>
                                
                                     <tr>
-                                        <td>{{ $candidates->id }}</td>
+                                        <td>{{ $candidates->candidates_id }}</td>
                                         <td>{{ $candidates->candidate_name }}</td>
                                         <td>{{ $candidates->CNIC }}</td>
                                         <td>{{ $candidates->party_name }}</td>
@@ -41,10 +41,10 @@
                                         <td><img src="{{ asset('uploads/candidate/'.$candidates->image) }}" width="70px"></td>
  
                                         <td>
-                                            <!-- <a href="{{ url('/voter/' . $candidates->id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a> -->
-                                            <a href="{{ url('/candidate/' . $candidates->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <!-- <a href="{{ url('/voter/' . $candidates->candidates_id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a> -->
+                                            <a href="{{ url('/candidate/' . $candidates->candidates_id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
  
-                                            <form method="POST" action="{{ url('/candidate' . '/' . $candidates->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <form method="POST" action="{{ url('/candidate' . '/' . $candidates->candidates_id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Contact" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
@@ -54,6 +54,7 @@
                                 
                                 </tbody>
                             </table>
+                            <a href="{{ url('candidate') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Back</button></a>
                         </div>
  
                     </div>

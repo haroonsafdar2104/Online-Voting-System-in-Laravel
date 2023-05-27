@@ -56,6 +56,27 @@ public function search(Request $request)
         
     }
 }
+
+public function csearch(Request $request)
+{
+    $searchKeyword = $request->input('keyword');
+    
+    $results = DB::table('candidates')
+               ->where('CNIC', $searchKeyword)  
+               ->get();
+               
+    // check if there is exactly one result with the same name
+    if ($results->count() == 1 && $results[0]->CNIC == $searchKeyword) {
+        $status = null;
+        return view('candidates.show', ['candidates' => $results[0]]);
+        
+    } else {
+        return view('voters.search')->with('status', 'user not Found')->with('searchKeyword', $searchKeyword);
+        
+    }
+}
+
+
     public function edit($id)
     {
         $voter = voter::find($id);

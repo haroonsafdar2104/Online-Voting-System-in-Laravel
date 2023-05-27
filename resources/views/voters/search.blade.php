@@ -2,11 +2,11 @@
     @section('content')
     <div class="container">
     <div class="card">
-        <div class="card-header">Search Results</div>
+        <div class="card-header">Login</div>
         <div class="card-body">
         <form action="{{ route('search') }}" method="GET">
             <Label>Email:</Label>
-            <input type="text" name="keyword" placeholder="Enter search keyword" class="form-control">
+            <input type="text" name="keyword" placeholder="Enter your Email" class="form-control">
             <br>
             <button type="submit" class="btn btn-success">Search</button>
             @if (isset($status))

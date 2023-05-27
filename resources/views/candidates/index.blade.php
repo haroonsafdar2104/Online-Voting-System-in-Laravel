@@ -8,12 +8,12 @@
                 <div class="card">
                     <div class="card-header">Candidate List</div>
                     <div class="card-body">
-                        <a href="{{ url('/candidate/create') }}" class="btn btn-success btn-sm" title="Add New Candidate">
+                        <!-- <a href="{{ url('/candidate/create') }}" class="btn btn-success btn-sm" title="Add New Candidate">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
-                        <a href="{{ route('search') }}" class="btn btn-success btn-sm" title="Search">
+                        <a href="{{ route('csearch') }}" class="btn btn-success btn-sm" title="Search">
     <i class="fa fa-search" aria-hidden="true"></i> Search
-</a>
+</a> -->
                         <br/>
                         <br/>
                         <div class="table-responsive">
@@ -54,6 +54,8 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <a href="{{ url('dashboard') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Back</button></a>
+
                         </div>
  
                     </div>

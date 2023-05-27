@@ -62,7 +62,7 @@
     <a href="{{ route('search') }}" class="btn btn-primary btn-lg btn-block custom-btn">Login as Voter</a>
   </div>
   <div class="col-md-3 mb-4">
-    <a href="{{ route('search') }}" class="btn btn-primary btn-lg btn-block custom-btn">Login as Candidate</a>
+    <a href="{{ route('csearch') }}" class="btn btn-primary btn-lg btn-block custom-btn">Login as Candidate</a>
   </div>
   <div class="col-md-3 mb-4">
     <a href="{{ url('/voter/create') }}" class="btn btn-success btn-lg btn-block custom-btn">Register as Voter</a>

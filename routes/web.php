@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
     });
 Route::resource('/candidate', candidate_Controller::class);
-Route::get('/search', [candidate_Controller::class, 'search'])->name('search');
+Route::get('/csearch', [candidate_Controller::class, 'search'])->name('csearch');
 
 // Route::get('voter/create', 'VoterController@create')->name('voter.create');
 Route::resource('/voter', voter_Controller::class);
