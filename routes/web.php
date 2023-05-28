@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::resource('/candidate', candidate_Controller::class);
 Route::get('/csearch', [candidate_Controller::class, 'search'])->name('csearch');
 
+Route::get('/showsupport', [voter_controller::class, 'showsupport'])->name('showsupport');
+Route::post('/support', [voter_controller::class, 'support'])->name('support');
 // Route::get('voter/create', 'VoterController@create')->name('voter.create');
 Route::resource('/voter', voter_Controller::class);
 Route::get('/search', [voter_Controller::class, 'search'])->name('search');

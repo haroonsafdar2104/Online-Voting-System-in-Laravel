@@ -102,6 +102,7 @@
                             <tr>
                                 <td class="w-25">{{ $sl }}</td>
                                 <td class="w-75">{{ $winner->candidate_name }}</td>
+                                <!-- <td class="w-75">{{ $winner->voters_id }}</td> -->
                                 
                             </tr>
                             @php

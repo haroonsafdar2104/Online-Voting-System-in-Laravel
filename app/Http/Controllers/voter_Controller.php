@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\voter;
 use App\Models\Candidate;
+use App\Models\candidate_support;
 use App\Models\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,8 +12,9 @@ class voter_Controller extends Controller
     public function index()
     {
         $voters = voter::all();
+        $supports = candidate_support::all();
         
-      return view ('voters.index')->with('voters', $voters);
+      return view ('voters.index')->with('voters', $voters)->with('supports', $supports);
     }
     public function showVoters()
 {
@@ -181,6 +183,22 @@ public function csearch(Request $request)
         $winners    = $candidatesQ->limit(2)->get();
 
         return view('dashboard', compact('candidates', 'winners'));
+    }
+
+    public function showsupport(){
+        $candidates = candidate::all();
+        $voters = voter::all();
+        return view('voters.candidatesupport')->with('candidates',$candidates)->with('voters', $voters);
+    }
+    public function support(request $request){
+        
+        $voter = new candidate_support();
+        $voter->voters_id = $request->input('voters_name');
+        $voter->candidates_id = $request->input('candidates_name');
+        $voter->description = $request->input('description');
+        $voter->save();
+        $candidates = candidate_support::all();
+        return redirect('voter')->with('status', 'support added')->with('candidates',$candidates); 
     }
 
 
