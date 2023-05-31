@@ -73,7 +73,7 @@
                                     <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->candidates_id }}</td>
-                                    <td>{{ $item->voters->name }}</td>
+                                    <td>{{ $item->voters_id }}</td>
                                     <td>{{ $item->description }}</td>
                                         
                                         

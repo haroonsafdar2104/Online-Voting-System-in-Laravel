@@ -7,11 +7,64 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+    <style>
+    body {
+      background: #48789b ;
+    }
+    .card {
+      width: 400px;
+      margin: 0 auto;
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .card h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-control {
+      margin-bottom: 10px;
+      outline:none;
+    }
+    .form-control:focus {
+  outline-offset: -2px;
+  box-shadow: 0 0 0 1px #48789b;
+}
+    .btn-success {
+      width: 100%;
+    }
+    .alert {
+      margin-top: 10px;
+    }
+
+    .flat-button {
+        color: #48789b;
+        width: 200px;
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-decoration: none;
+        padding: 8px 10px;
+        border: 2px solid #48789b;
+        float: left;
+        border-radius: 4px;
+        background: 0 0;
+        text-transform: uppercase;
+        float: right;
+        text-align: center;
+        margin-right: 10px;
+    }
+
+    .flat-button:hover {
+        color: #fff;
+        background-color: #48789b;
+    }
+  </style>
 </head>
 <body>
   <div class="card">
   
-  <div class="card-header">Voter registeration</div>
+  <div class="card-header">VOTER REGISTRATION</div>
   <div class="card-body">
       
       <form action="{{ url('voter') }}" method="post">
@@ -22,7 +75,7 @@
         <input type="text" name="Email" id="Email" class="form-control"></br>
         <label>Password</label></br>
         <input type="text" name="password" id="party_name" class="form-control"></br>
-        <input type="submit" value="Save" class="btn btn-success"></br>
+        <input type="submit" value="Save" class="btn btn-success flat-button"></br>
         @if (isset($status))
           <div class="alert alert-success alert-dismissible">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
