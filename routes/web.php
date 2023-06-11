@@ -2,8 +2,8 @@
   
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\candidate_Controller;
-use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\voter_Controller;
+use App\Http\Controllers\Auth;
   
 /*
 |--------------------------------------------------------------------------
@@ -23,14 +23,17 @@ Route::get('/csearch', [candidate_Controller::class, 'search'])->name('csearch')
 
 Route::get('/showsupport', [voter_controller::class, 'showsupport'])->name('showsupport');
 Route::post('/support', [voter_controller::class, 'support'])->name('support');
-// Route::get('voter/create', 'VoterController@create')->name('voter.create');
-Route::resource('/voter', voter_Controller::class);
+Route::get('voter/create', [Voter_controller::class,'create'])->name('voter.create');
+Route::post('voter/store', [Voter_controller::class,'store'])->name('store');
+Route::get('/voter', [voter_Controller::class,'index'])->name('voter.index');
 Route::get('/search', [voter_Controller::class, 'search'])->name('search');
 Route::get('/polling', [Voter_Controller::class, 'showPollingPage']);
 Route::post('/dashboard', [Voter_Controller::class, 'vote'])->name('vote');
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::get('dashboard', [AuthController::class, 'dashboard']); 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/polling_result', [Voter_Controller::class, 'polling_result'])->name('polling_result');
+Route::delete('/voter/{id}/delete', [voter_Controller::class,'delete'])->name('delete');
+
+
+
+Illuminate\Support\Facades\Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

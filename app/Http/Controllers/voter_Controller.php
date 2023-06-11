@@ -33,7 +33,7 @@ class voter_Controller extends Controller
     {
         $input = $request->all();
         voter::create($input);
-        return redirect('voter')->with('status', 'voter Addedd!');  
+        return redirect('voter')->with('flash_message', 'voter Addedd!');  
     }
     public function show($name)
     {
@@ -101,10 +101,18 @@ public function csearch(Request $request)
  
   
     public function destroy($id)
-    {
+    {   
+
         voter::destroy($id);
-        return redirect('voter')->with('flash_message', 'Contact deleted!');  
-    }
+        return redirect('voter')->with('flash_message', 'Voter deleted!');  
+}
+public function delete($id)
+{   
+
+    vote::destroy($id);
+    $votes = vote::all();
+    return view('voters.polling_result')->with('flash_message', 'Vote deleted!')->with('votes', $votes);  
+}
     public function vote(Request $request)
 {
     $errors = [];
@@ -161,8 +169,8 @@ public function csearch(Request $request)
 
         $candidates = $candidatesQ->get();
         $winners    = $candidatesQ->limit(2)->get();
-
-        return view('dashboard')->with('success', 'You have cast your vote successfully.')->with('winners',$winners)->with('candidates',$candidates);
+        $votes = vote::all();
+        return view('dashboard')->with('success', 'You have cast your vote successfully.')->with('winners',$winners)->with('candidates',$candidates)->with('votes', $votes);
     } catch (Exception $e) {
         return back()->withErrors(['error' => 'Unable to process your request.'])->withInput();
     }
@@ -199,6 +207,10 @@ public function csearch(Request $request)
         $voter->save();
         $candidates = candidate_support::all();
         return redirect('voter')->with('status', 'support added')->with('candidates',$candidates); 
+    }
+    public function polling_result(){
+        $votes = vote::all();
+        return view('voters.polling_result')->with('votes', $votes);
     }
 
 

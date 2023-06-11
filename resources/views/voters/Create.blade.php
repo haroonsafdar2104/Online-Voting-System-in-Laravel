@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Online Voting System</title>
     <style>
     body {
       background: #48789b ;
@@ -67,7 +67,7 @@
   <div class="card-header">VOTER REGISTRATION</div>
   <div class="card-body">
       
-      <form action="{{ url('voter') }}" method="post">
+      <form action="{{ url('voter/store') }}" method="post">
         {!! csrf_field() !!}
         <label>Name</label></br>
         <input type="text" name="name" id="name" class="form-control"></br>

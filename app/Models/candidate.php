@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class candidate extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'candidates_id';
     public function vote()
     {
     return $this->belongsTo(vote::class);

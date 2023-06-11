@@ -221,7 +221,7 @@ nav ul li a {
                 </ul>
             </nav>
             <button onclick="window.location.href='/login';" class="btn" id="btn1">Log In</button>
-            <button onclick="window.location.href='/registration';" class="btn" id="btn2">Sign Up</button>
+            <button onclick="window.location.href='/register';" class="btn" id="btn2">Sign Up</button>
         </div>
         <div class="content">
             <div class="text">

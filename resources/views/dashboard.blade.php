@@ -1,4 +1,4 @@
-@extends('candidates.layout')
+@extends('layouts.app')
 @section('content')
  
 <!DOCTYPE html>
@@ -13,6 +13,7 @@
   <div class="container">
     <div class="card">
         <div class="card-header">Dashboard</div>
+        
     <div class="card-body">
 <div class="container-fluid py-4">
   <hr>
@@ -82,7 +83,6 @@
 
 <section class="section py-5 bg-light">
     <div class="container">
-    <div class="alert alert-success" role="alert">{{ $success }}</div>
         <div class="card">
             <div class="text-center py-4">
                 <h1 class="fw-light">Poll Result</h1>

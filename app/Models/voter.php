@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class voter extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'voters_id';
     protected $guarded = []; 
     public function vote()
     {
