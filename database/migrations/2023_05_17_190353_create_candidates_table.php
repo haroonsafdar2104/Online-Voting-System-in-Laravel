@@ -18,6 +18,7 @@ class CreateCandidatesTable extends Migration
             $table->timestamps();
             $table->string('candidate_name',20 );
             $table->string('CNIC',20,)->unique();
+            $table->string('email',20);
             $table->string('party_name',20);
             $table->string('Electoral',20);
             $table->string('image');

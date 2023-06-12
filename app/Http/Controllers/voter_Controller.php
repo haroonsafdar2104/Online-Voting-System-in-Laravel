@@ -206,7 +206,7 @@ public function delete($id)
         $voter->description = $request->input('description');
         $voter->save();
         $candidates = candidate_support::all();
-        return redirect('voter')->with('status', 'support added')->with('candidates',$candidates); 
+        return redirect('home')->with('status', 'support added')->with('candidates',$candidates); 
     }
     public function polling_result(){
         $votes = vote::all();

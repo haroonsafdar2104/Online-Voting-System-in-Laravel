@@ -24,6 +24,7 @@
                                         <th>#</th>
                                         <th>Candidate Name</th>
                                         <th>CNIC </th>
+                                        <th>Email </th>
                                         <th>Party Name</th>
                                         <th>Electoral</th>
                                         <th>Image</th>
@@ -36,6 +37,7 @@
                                         <td>{{ $candidates->candidates_id }}</td>
                                         <td>{{ $candidates->candidate_name }}</td>
                                         <td>{{ $candidates->CNIC }}</td>
+                                        <td>{{ $candidates->email }}</td>
                                         <td>{{ $candidates->party_name }}</td>
                                         <td>{{ $candidates->Electoral }}</td>
                                         <td><img src="{{ asset('uploads/candidate/'.$candidates->image) }}" width="70px"></td>

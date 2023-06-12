@@ -147,6 +147,43 @@
 </section>
 
 
+<section class="section py-5 bg-light">
+    <div class="container">
+        <div class="card">
+            <div class="text-center py-4">
+                <h1 class="fw-light">Candidates Support</h1>
+            </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Candidate Name</th>
+                    <th>Voter Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach(App\Models\candidate_support::all() as $item)
+                    <tr>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ App\Models\candidate::find($item->candidates_id)->candidate_name }}</td>
+                        <td>{{ App\Models\voter::find($item->voters_id)->name }}</td>
+                        <td>{{ $item->description }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+
     </div>
     </div>
   </div>

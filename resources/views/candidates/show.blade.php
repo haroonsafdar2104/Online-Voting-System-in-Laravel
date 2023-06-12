@@ -19,6 +19,7 @@
         <div class="card-body">
         <h5 class="card-title">Candidate Name : {{ $candidate->candidate_name }}</h5>
         <p class="card-text">CNIC : {{ $candidate->CNIC }}</p>
+        <p class="card-text">Email : {{ $candidate->email }}</p>
         <p class="card-text">Party Name : {{ $candidate->party_name }}</p>
         <p class="card-text">Electorl : {{ $candidate->Electoral }}</p>
         <p class="card-text">Image :    <img src="{{ asset('uploads/candidate/'.$candidate->image) }}" width="180px" height="130px" alt="Image"></p>

@@ -23,6 +23,7 @@
                                         <th>#</th>
                                         <th>Candidate Name</th>
                                         <th>CNIC </th>
+                                        <th>Email </th>
                                         <th>Party Name</th>
                                         <th>Electoral</th>
                                         <th>Image</th>
@@ -36,6 +37,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->candidate_name }}</td>
                                         <td>{{ $item->CNIC }}</td>
+                                        <td>{{ $item->email }}</td>
                                         <td>{{ $item->party_name }}</td>
                                         <td>{{ $item->Electoral }}</td>
                                         <td><img src="{{ asset('uploads/candidate/'.$item->image) }}" width="70px"></td>
@@ -54,7 +56,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <a href="{{ url('dashboard') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Back</button></a>
+                            <a href="{{ url('home') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Back</button></a>
 
                         </div>
  

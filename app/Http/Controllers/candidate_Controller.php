@@ -25,6 +25,7 @@ class candidate_Controller extends Controller
         $candidate = new candidate();
         $candidate->candidate_name = $request->input('candidate_name');
         $candidate->CNIC = $request->input('CNIC');
+        $candidate->email = $request->input('email');
         $candidate->party_name = $request->input('party_name');
         $candidate->Electoral = $request->input('Electoral');
         // if ($request->hasFile('image')) {
@@ -67,6 +68,7 @@ class candidate_Controller extends Controller
         $candidate = candidate::find($id);
         $candidate->candidate_name = $request->input('candidate_name');
         $candidate->CNIC = $request->input('CNIC');
+        $candidate->email = $request->input('email');
         $candidate->party_name = $request->input('party_name');
         $candidate->Electoral = $request->input('Electoral');
 

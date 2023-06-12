@@ -45,36 +45,14 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <a href="{{ url('dashboard') }}" title="Edit Student" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Back</a>
+                        <a href="{{ url('home') }}" title="Edit Student" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Back</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <h1>Candidates Support</h1>
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Candidate Name</th>
-                    <th>Voter Name</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($supports as $item)
-                    <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ App\Models\candidate::find($item->id)->candidate_name }}</td>
-                        <td>{{ App\Models\voter::find($item->voters_id)->name }}</td>
-                        <td>{{ $item->description }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+    
 </div>
 
 @endsection
