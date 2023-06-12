@@ -4,6 +4,8 @@ use App\Models\candidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\form_mail2;
 class candidate_Controller extends Controller
 {
     public function index()
@@ -43,7 +45,21 @@ class candidate_Controller extends Controller
             $file->move('uploads/candidate/', $filename);
             $candidate->image = $filename;
         }
-        $candidate->save();
+        $emails = [
+            'email' => $candidate->email,
+            'cc' => $request->get('cc'),
+            'bcc' => $request->get('bcc')
+            ];
+            $details = [
+            'subject' => 'Candidate creation',
+            'body' => $request->get('candidate_name'),
+            'cnic'=> $request->get('CNIC'),
+            'file' => ''
+            ];
+            $candidate->save();
+            if($emails["cc"] == '' && $emails["bcc"] == ''){
+            Mail::to($emails['email'])->send(new form_mail2($details));
+            }
 
         return redirect('candidate')->with('flash_message', 'candidate Added!');
     }

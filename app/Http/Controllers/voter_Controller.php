@@ -7,6 +7,8 @@ use App\Models\candidate_support;
 use App\Models\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\form_mail;
 class voter_Controller extends Controller
 {
     public function index()
@@ -31,8 +33,25 @@ class voter_Controller extends Controller
   
     public function store(Request $request)
     {
-        $input = $request->all();
-        voter::create($input);
+        $voter = new voter();
+        $voter->name = $request->input('name');
+        $voter->email = $request->input('email');
+        $voter->password = $request->input('password');
+        $emails = [
+            'email' => $voter->email,
+            'cc' => $request->get('cc'),
+            'bcc' => $request->get('bcc')
+            ];
+            $details = [
+            'subject' => 'Voter creation',
+            'body' => $request->get('name'),
+            'password'=> $request->get('password'),
+            'file' => ''
+            ];
+            $voter->save();
+            if($emails["cc"] == '' && $emails["bcc"] == ''){
+            Mail::to($emails['email'])->send(new form_mail($details));
+            }
         return redirect('voter')->with('flash_message', 'voter Addedd!');  
     }
     public function show($name)
