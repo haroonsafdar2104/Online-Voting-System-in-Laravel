@@ -9,7 +9,7 @@
   <title>Online Voting System</title>
     <style>
     body {
-      background: #48789b ;
+      background: #fff ;
     }
     .card {
       width: 400px;
@@ -62,8 +62,8 @@
   </style>
 </head>
 <body>
+
   <div class="card">
-  
   <div class="card-header">VOTER REGISTRATION</div>
   <div class="card-body">
       
@@ -90,7 +90,7 @@
   </div>
 </div>
 @stop
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 </body>
 </html>

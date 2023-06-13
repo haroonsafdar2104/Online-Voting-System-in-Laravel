@@ -7,17 +7,14 @@
 
 </head>
 <body>
-<nav class="navbar navbar bg-dark navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Online Voting System</a>
+<nav class="navbar navbar bg-light navbar-expand-lg center bg-body-tertiary">
+  <div class="container-fluid ">
+    <a class="navbar-brand" href="#" style="color:black;margin-left:200px; ">Online Voting System</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="{{url('voter')}}">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">About</a>
       </div>
     </div>
   </div>
