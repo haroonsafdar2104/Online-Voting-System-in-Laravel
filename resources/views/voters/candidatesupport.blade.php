@@ -18,11 +18,14 @@
 
       <div class="form-group">
         <label for="voter-name">Voter Name:</label>
-        <select id="voter-name" name="voters_name" class="form-control">
+        <!-- <input type="text" name="voter_name" class="form-control" value="{{Auth::User()->id}}" placeholder="{{Auth::User()->name}}" disabled> -->
+        <input type="text" name="voters_name" value="{{Auth::User()->id}}" hidden>
+        <input type="text" name="voter_id" class="form-control" value="{{Auth::User()->name}}" disabled>
+        <!-- <select id="voter-name" name="voters_name" class="form-control">
           @foreach ($voters as $voter)
             <option value="{{ $voter->voters_id }}">{{ $voter->name }}</option>
           @endforeach
-        </select>
+        </select> -->
       </div>
 
       <div class="form-group">
