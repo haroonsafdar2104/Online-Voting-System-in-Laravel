@@ -27,6 +27,7 @@ class voter_Controller extends Controller
     
     public function create()
     {
+        
         return view('voters.create');
     }
  

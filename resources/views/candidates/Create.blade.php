@@ -8,11 +8,11 @@
       <form action="{{ url('candidate') }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <label>Candidate Name</label></br>
-        <input type="text" name="candidate_name" id="candidate_name" class="form-control"></br>
+        <input type="text" name="candidate_name" id="candidate_name" value="{{Auth::user()->name}}"  class="form-control"></br>
         <label>CNIC</label></br>
         <input type="text" name="CNIC" id="CNIC" class="form-control"></br>
         <label>Email</label></br>
-        <input type="text" name="email" id="email" class="form-control"></br>
+        <input type="text" name="email" id="email" value="{{Auth::user()->email}}"  class="form-control"></br>
         <label>Party Name</label></br>
         <input type="text" name="party_name" id="party_name" class="form-control"></br>
         <label>Electoral</label></br>

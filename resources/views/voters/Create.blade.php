@@ -70,9 +70,9 @@
       <form action="{{ url('voter/store') }}" method="post">
         {!! csrf_field() !!}
         <label>Name</label></br>
-        <input type="text" name="name" id="name" class="form-control"></br>
+        <input type="text" name="name" id="name" value="{{Auth::user()->name}}" class="form-control"></br>
         <label>Email</label></br>
-        <input type="text" name="email" id="Email" class="form-control"></br>
+        <input type="text" name="email" id="Email" value="{{ Auth::user()->email }}"  class="form-control"></br>
         <label>Password</label></br>
         <input type="text" name="password" id="party_name" class="form-control"></br>
         <input type="submit" value="Save" class="btn btn-success flat-button"></br>

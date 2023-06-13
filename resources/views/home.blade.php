@@ -58,7 +58,7 @@
     </div>
   </div>
   <hr>
-  <div class="row">
+  <div class="row justify-content-center">
   <div class="col-md-3 mb-4">
     <a href="{{ route('search') }}" class="btn btn-primary btn-lg btn-block custom-btn">Login as Voter</a>
   </div>
@@ -75,11 +75,6 @@
     <a href="{{ url('/showsupport') }}" class="btn btn-success btn-lg btn-block custom-btn">Candidate Support</a>
   </div>
 </div>
-<!-- <div class="row" >
-  <div class="col-md-12 mb-4">
-    <a href="#" class="btn btn-info btn-lg btn-block custom-btn">View Results</a>
-  </div>
-</div> -->
 </div>
 
 
@@ -194,19 +189,87 @@
     font-size:15px;
     
   }
-    .custom-btn {
-  font-size: 18px;
-  padding: 12px 24px;
-  border-radius: 50px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
+ .custom-btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .custom-btn:hover {
-  background-color: #0080ff;
+  background-color: #333;
   color: #fff;
-  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
 }
+
+.custom-btn.block {
+  display: block;
+  width: 100%;
+}
+
+.custom-btn.primary {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.custom-btn.primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.custom-btn.success {
+  background-color: #28a745;
+  color: #fff;
+  border-color: #28a745;
+}
+
+.custom-btn.success:hover {
+  background-color: #1f8f3e;
+  border-color: #1f8f3e;
+}
+
+.custom-btn.info {
+  background-color: #17a2b8;
+  color: #fff;
+  border-color: #17a2b8;
+}
+
+.custom-btn.info:hover {
+  background-color: #117a8b;
+  border-color: #117a8b;
+}
+
+.custom-btn.secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border-color: #6c757d;
+}
+
+.custom-btn.secondary:hover {
+  background-color: #4e555b;
+  border-color: #4e555b;
+}
+
+.custom-btn.danger {
+  background-color: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+}
+
+.custom-btn.danger:hover {
+  background-color: #b02a37;
+  border-color: #b02a37;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 115px;
+  }
 .voters{
   background-color:#157347;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.4);
